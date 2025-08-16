@@ -1,7 +1,21 @@
+:root {
+    --hero-small: 2.1rem;
+    --hero-large: 7.75rem;
+    --hero-small-mobile: 1.5rem;
+    --hero-large-mobile: 4.5rem;
+
+    --scroller-size: 1.5rem;
+
+    --emphasize: #89405C;
+    --main-color: #1E1E28;
+    --menu-color: #CC9A99;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /*outline: 1px solid red;*/
 }
 
 body {
@@ -13,6 +27,10 @@ body {
   font-family: "Averia Libre", system-ui;
   font-weight: 400;
   font-style: normal;
+}
+
+.emphasize {
+  color: var(--emphasize);
 }
 
 .hero {
@@ -27,4 +45,71 @@ body {
   height: 100%;
   object-fit: cover;
   translate: 20% 0%;
+  z-index: -1;
+}
+
+.hero .text-content {
+    width: 30%;
+    height: 30%;
+    color: white;
+    position: absolute;
+    top: 12rem;
+    margin-left: 5.63rem;
+}
+
+.hero h3 {
+    font-size: var(--hero-small);
+}
+
+.hero h1 {
+    font-size: var(--hero-large);
+}
+
+@media (max-width: 430px){
+    .hero .text-content {
+        margin-left: 4rem;
+    }
+
+    .hero h3 {
+        font-size: var(--hero-small-mobile);
+    }
+    .hero h1 {
+        font-size: var(--hero-large-mobile);
+    }
+}
+
+.scroller {
+    max-width: 100%;
+    position: absolute;
+    bottom: 1rem;
+    
+}
+
+.scroller__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 1rem;
+    width: max-content
+}
+
+.scroller__inner li {
+    list-style-type: none;
+    font-size: var(--scroller-size);
+    
+}
+
+.scroller[data-animated="true"] {
+    overflow: hidden;
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
+    
 }
