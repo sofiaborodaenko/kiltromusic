@@ -17,7 +17,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /*outline: 1px solid red;*/
+  /* outline: 1px solid red; */
 }
 
 body {
@@ -116,6 +116,15 @@ body {
 
 nav {
   font-size: var(--menu-size);
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  display: inline-block;
 }
 
 .dropdown button {
@@ -128,10 +137,47 @@ nav {
   cursor: pointer;
 }
 
+.dropdown a {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--menu-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+}
+
 .dropdown .content {
   display: none;
   position: absolute;
-  background-color: var(--main-color);
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0rem;
+  max-width: 8.5rem;
+  margin: -1.4rem 1.5rem;
+}
+
+.dropdown a:hover {
+  color: var(--emphasize);
+}
+
+.dropdown:hover .content {
+  color: var(--emphasize);
+  display: block;
+}
+
+/* use this to make it clickable on phone in js later */
+/* @media (hover: none) {
+  
+  .dropdown .content {
+    display: block; 
+  }
+} */
+
+.logo__links {
+  margin-left: auto;
+  margin-right: 1.44rem;
+}
+
+.logo__links .logos {
+  display: flex;
+  gap: 1rem;
 }
