@@ -371,9 +371,9 @@ nav {
 }
 
 .fade-down {
-  position: absolute;
+  position: relative;
   left: 0;
-  top: 95vh;
+  bottom: 11rem;
   width: 100%;
   height: 11rem;
   pointer-events: none;

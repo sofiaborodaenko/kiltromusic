@@ -1,1 +1,15 @@
 @import url("/static/styles.css");
+
+.hero {
+  /* position: relative; */
+  background-color: transparent;
+  height: 100vh;
+}
+
+/* .fade-down {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 30, 40, 0.55) 13.98%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
+} */
