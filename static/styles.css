@@ -46,6 +46,15 @@ body {
   color: var(--emphasize);
 }
 
+.reveal_section {
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
 .hero {
   width: 100%;
   height: 120vh;
