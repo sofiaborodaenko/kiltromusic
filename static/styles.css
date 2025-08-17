@@ -26,6 +26,8 @@
 
 html {
   overflow-x: hidden;
+  font-weight: 400;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -276,7 +278,7 @@ nav {
 
 .main__button {
   display: flex;
-  width: 8.0625rem;
+  width: max-content;
   height: 3.375rem;
   padding: 0.875rem 1.0625rem 0.9375rem 1.0625rem;
   justify-content: center;
@@ -284,8 +286,9 @@ nav {
   flex-shrink: 0;
   border-radius: 0.3125rem;
   background: var(--emphasis-colour, #89405c);
+  border: 5px solid transparent;
   color: white;
-  border: none;
+  font-size: 18px;
 }
 
 .main__button:hover {
