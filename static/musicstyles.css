@@ -1,15 +1,87 @@
-@import url("/static/styles.css");
+@import url("../static/styles.css");
 
 .hero {
-  /* position: relative; */
   background-color: transparent;
-  height: 100vh;
+  /* overflow: visible; */
 }
 
-/* .fade-down {
-  background: linear-gradient(
-    180deg,
-    rgba(30, 30, 40, 0.55) 13.98%,
-    rgba(0, 0, 0, 0.28) 100%
-  );
-} */
+.hero__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.blue-to-black {
+  height: 15rem;
+}
+
+.at-bottom {
+  position: absolute;
+  bottom: 0;
+}
+.left__side__music__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 5rem;
+}
+
+.new_album_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right__side__music__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.underbelly__album__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album__shade {
+  width: 85%;
+  height: 5.25rem;
+  /* fill: rgba(0, 0, 0, 0.25); */
+  border-radius: 50%;
+  background-color: red;
+  /* position: relative;
+  top: -50vw;
+  left: -1rem; */
+  transform: translateY(-250px) translateX(-20px);
+  z-index: -1;
+}
+
+@media (max-width: 650px) {
+  .hero__content {
+    flex-direction: column;
+  }
+
+  .left__side__music__content,
+  .right__side__music__content {
+    width: 100%;
+  }
+
+  /* .left__side__music__content {
+    padding-top: 35rem;
+  } */
+
+  .album__shade {
+    width: 100%;
+    height: 3rem;
+    top: -10rem;
+    left: -1rem;
+  }
+}

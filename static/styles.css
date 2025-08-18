@@ -21,7 +21,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Open Sans";
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 }
 
 html {
@@ -60,7 +60,7 @@ body {
   height: 120vh;
   background-color: #080908;
   overflow: hidden;
-  /* position: relative; */
+  position: relative;
 }
 
 .hero video {
@@ -370,36 +370,39 @@ nav {
   }
 }
 
-.fade-down {
-  position: relative;
-  left: 0;
-  bottom: 11rem;
+.black-to-blue {
   width: 100%;
   height: 11rem;
   pointer-events: none;
   background: linear-gradient(
     0deg,
-    rgba(30, 30, 40, 0.55) 13.98%,
-    rgba(0, 0, 0, 0.28) 100%
+    rgba(30, 30, 40, 0.28) 13.98%,
+    rgba(0, 0, 0, 0.55) 100%
   );
-
   backdrop-filter: blur(2px);
 }
 
-.fade-up {
-  position: absolute;
-  left: 0;
-  top: 0;
+.blue-to-black {
   width: 100%;
   height: 11rem;
   pointer-events: none;
   background: linear-gradient(
     0deg,
-    rgba(30, 30, 40, 0.55) 13.98%,
-    rgba(0, 0, 0, 0.37) 100%
+    rgba(0, 0, 0, 0.55) 13.98%,
+    rgba(30, 30, 40, 0.28) 100%
   );
-
   backdrop-filter: blur(2px);
+  z-index: -10;
+}
+
+.at-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.at-top {
+  position: absolute;
+  top: 0;
 }
 
 .get__notified {
