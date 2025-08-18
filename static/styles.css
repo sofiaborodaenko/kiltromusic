@@ -21,7 +21,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Open Sans";
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 html {
@@ -380,6 +380,7 @@ nav {
     rgba(0, 0, 0, 0.55) 100%
   );
   backdrop-filter: blur(2px);
+  z-index: -10;
 }
 
 .blue-to-black {

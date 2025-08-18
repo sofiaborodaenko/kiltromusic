@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 5%;
+  padding-bottom: 5rem;
 }
 
 .blue-to-black {
@@ -28,7 +29,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-bottom: 5rem;
 }
 
 .new_album_image {
@@ -38,11 +38,14 @@
 }
 
 .right__side__music__content {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .underbelly__album__image {
@@ -51,22 +54,10 @@
   object-fit: cover;
 }
 
-.album__shade {
-  width: 85%;
-  height: 5.25rem;
-  /* fill: rgba(0, 0, 0, 0.25); */
-  border-radius: 50%;
-  background-color: red;
-  /* position: relative;
-  top: -50vw;
-  left: -1rem; */
-  transform: translateY(-250px) translateX(-20px);
-  z-index: -1;
-}
-
 @media (max-width: 650px) {
   .hero__content {
     flex-direction: column;
+    align-items: center;
   }
 
   .left__side__music__content,
@@ -74,9 +65,13 @@
     width: 100%;
   }
 
-  /* .left__side__music__content {
-    padding-top: 35rem;
-  } */
+  .left__side__music__content {
+    /* padding-top: 30%; */
+  }
+
+  .underbelly__album__image {
+    /* transform: translateY(-15%); */
+  }
 
   .album__shade {
     width: 100%;
@@ -84,4 +79,77 @@
     top: -10rem;
     left: -1rem;
   }
+}
+
+.albums__container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.album__container {
+  width: 100%;
+  height: 90vh;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+}
+
+.album__image__container {
+  width: 65%;
+  /* overflow: hidden; */
+}
+
+.album_image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* transform: scale(1.4); */
+  /* object-position: -30px -130px; */
+}
+
+.stream__btn__container {
+  width: 35%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.stream_btn {
+  width: 100%;
+}
+
+@media (max-width: 650px) {
+  .album__container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .album__image__container {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .stream__btn__container {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .album_image {
+    transform: scale(1.04);
+    /* object-position: -6px 30px; */
+  }
+}
+
+path {
+  fill: transparent;
+}
+
+text {
+  fill: white;
 }
