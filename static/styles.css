@@ -42,6 +42,11 @@ body {
   font-style: normal;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .emphasize {
   color: var(--emphasize);
 }
