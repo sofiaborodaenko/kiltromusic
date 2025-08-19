@@ -4,9 +4,18 @@ body {
   background-color: var(--main-color);
 }
 
+a {
+  text-decoration: none;
+}
+
+.stream__btn__container a {
+  width: 100%;
+}
+
 .hero {
   /* background-color: var(--main-color); */
   /* overflow: visible; */
+  z-index: 0;
 }
 
 .hero__content {
@@ -17,20 +26,28 @@ body {
   align-items: center;
   padding: 0 5%;
   padding-bottom: 5rem;
+  z-index: 0;
 }
 
 .hero-content-parallax {
   transform: translateZ(-10px) scale(2);
+  z-index: -10;
 }
 
 .blue-to-black {
-  height: 15rem;
+  height: 50rem;
+  /* z-index: -10; */
+}
+
+.black-to-blue {
+  z-index: 0;
 }
 
 .at-bottom {
   position: absolute;
-  bottom: 0;
+  bottom: -20rem;
 }
+
 .left__side__music__content {
   display: flex;
   flex-direction: column;
@@ -96,6 +113,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--main-color);
+  /* transform-style: preserve-3d; */
 }
 
 .album__container {
@@ -104,7 +122,41 @@ body {
   margin-top: 80px;
   display: flex;
   flex-direction: row;
+  z-index: 1;
 }
+
+.first-album {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.second__album__wrapper {
+  height: 100vh;
+  position: relative;
+  /* background-color: blue; */
+}
+
+.second-album {
+  position: sticky;
+  /* margin-top: -50vh; */
+  z-index: 2;
+  height: 50vh;
+  top: 20vh;
+  /* background-color: red; */
+}
+
+/* .album__wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 100px;
+} */
+
+/* .album-parallax {
+  transform: translateZ(-100px) scale(2);
+  z-index: -10;
+} */
 
 .album__image__container {
   width: 65%;
@@ -159,10 +211,7 @@ body {
   }
 }
 
-path {
-  fill: transparent;
-}
-
-text {
-  fill: white;
-}
+/* .footer {
+  position: relative;
+  bottom: 30vh;
+} */
