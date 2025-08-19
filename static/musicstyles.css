@@ -58,6 +58,7 @@
   .hero__content {
     flex-direction: column;
     align-items: center;
+    padding: 0;
   }
 
   .left__side__music__content,
