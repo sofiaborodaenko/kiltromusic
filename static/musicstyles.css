@@ -1,7 +1,11 @@
 @import url("../static/styles.css");
 
+body {
+  background-color: var(--main-color);
+}
+
 .hero {
-  background-color: transparent;
+  /* background-color: var(--main-color); */
   /* overflow: visible; */
 }
 
@@ -13,6 +17,10 @@
   align-items: center;
   padding: 0 5%;
   padding-bottom: 5rem;
+}
+
+.hero-content-parallax {
+  transform: translateZ(-10px) scale(2);
 }
 
 .blue-to-black {
@@ -87,6 +95,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  background-color: var(--main-color);
 }
 
 .album__container {
@@ -133,12 +142,15 @@
   .album__image__container {
     width: 100%;
     height: 50vh;
+    display: flex;
+    align-items: flex-end;
   }
 
   .stream__btn__container {
     width: 100%;
     height: auto;
     padding: 1rem;
+    align-items: flex-start;
   }
 
   .album_image {

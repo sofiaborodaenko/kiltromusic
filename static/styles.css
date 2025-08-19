@@ -33,7 +33,7 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   color: white;
-  background-color: var(--main-color);
+  background-color: #000000;
 }
 
 .averia-libre-regular {
@@ -55,20 +55,43 @@ body {
   transform: translateY(8rem);
 }
 
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
 .hero {
   width: 100%;
   height: 120vh;
-  background-color: #080908;
-  overflow: hidden;
+  /* background-color: #080908; */
+  /* overflow: hidden; */
   position: relative;
+  transform-style: preserve-3d;
+  /* z-index: -100000; */
 }
 
-.hero video {
+.background-parallax {
+  background-color: #000000;
+  /* position: absolute;
+  z-index: inherit; */
+  transform: translateZ(-10px) scale(2);
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   translate: 20% 0%;
-  z-index: -1;
+  /* z-index: 2; */
+}
+
+.header-text-parallax {
+  transform: translateZ(-5px) scale(1.5);
 }
 
 .hero .text-content {
@@ -77,7 +100,7 @@ body {
   color: white;
   position: absolute;
   top: 12rem;
-  margin-left: 5.63rem;
+  margin-left: -10rem;
 }
 
 .hero h3 {
@@ -88,9 +111,9 @@ body {
   font-size: var(--hero-large);
 }
 
-@media (max-width: 430px) {
+@media (max-width: 650px) {
   .hero .text-content {
-    margin-left: 4rem;
+    margin-left: -1rem;
   }
 
   .hero h3 {
@@ -104,7 +127,7 @@ body {
 .scroller {
   max-width: 100%;
   position: absolute;
-  top: 90vh;
+  bottom: 2rem;
 }
 
 .scroller__inner {
@@ -202,6 +225,7 @@ nav {
 
 .main__content {
   position: relative;
+  background-color: var(--main-color);
 }
 
 .live__dates {
@@ -380,7 +404,7 @@ nav {
     rgba(0, 0, 0, 0.55) 100%
   );
   backdrop-filter: blur(2px);
-  z-index: -10;
+  z-index: 0;
 }
 
 .blue-to-black {
@@ -393,7 +417,7 @@ nav {
     rgba(30, 30, 40, 0.28) 100%
   );
   backdrop-filter: blur(2px);
-  z-index: -10;
+  z-index: 0;
 }
 
 .at-bottom {
@@ -520,7 +544,7 @@ nav {
   display: flex;
   flex-direction: row;
   margin-top: 160px;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
   padding: 0 5%;
 }
 
@@ -613,10 +637,14 @@ nav {
 }
 
 .footer {
+  position: relative;
   width: 100%;
-  height: 5vh;
+  /* height: 5vh; */
   display: flex;
   padding-left: 2.5rem;
+  padding-top: 80px;
+  padding-bottom: 1rem;
+  background-color: var(--main-color);
 }
 
 .footer p {
