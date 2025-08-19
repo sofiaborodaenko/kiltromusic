@@ -48,6 +48,11 @@ a {
   bottom: -20rem;
 }
 
+.stick {
+  position: sticky;
+  top: 0;
+}
+
 .left__side__music__content {
   display: flex;
   flex-direction: column;
@@ -127,22 +132,31 @@ a {
 
 .first-album {
   position: sticky;
-  top: 0;
+  top: 10vh;
   z-index: 1;
 }
 
 .second__album__wrapper {
-  height: 100vh;
+  height: 140vh;
   position: relative;
   /* background-color: blue; */
+  display: flex;
+  align-items: flex-end;
 }
 
-.second-album {
+/* .second-album {
   position: sticky;
-  /* margin-top: -50vh; */
   z-index: 2;
   height: 50vh;
   top: 20vh;
+
+} */
+
+.second-album {
+  position: sticky;
+  height: 40%;
+  top: 0;
+  z-index: 1;
   /* background-color: red; */
 }
 
@@ -209,9 +223,14 @@ a {
     transform: scale(1.04);
     /* object-position: -6px 30px; */
   }
+
+  .footer {
+    position: relative;
+    bottom: 0;
+  }
 }
 
-/* .footer {
+.footer {
   position: relative;
-  bottom: 30vh;
-} */
+  bottom: -30vh;
+}
