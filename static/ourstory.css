@@ -110,7 +110,7 @@ body {
   /* position: relative; */
 }
 
-.second_general_block .image-block {
+.left-image .image-block {
   justify-content: left;
 }
 
@@ -172,7 +172,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 7rem;
-  margin-bottom: 100px;
+  margin-top: 5%;
 }
 
 .image_hover {
@@ -221,4 +221,32 @@ body {
 .two-image-text {
   width: 80%;
   font-size: 20px;
+}
+
+.stand-alone-center-text {
+  width: 100%;
+  height: 50%;
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.stand-alone-center-text .main__button {
+  display: inline-flex;
+  margin: 0 1rem;
+}
+
+.eigth_general_block {
+  margin-top: 5%;
+}
+
+.full-width-video-kiltro-dot-com {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: none;
+}
+
+.last_block {
+    margin-top: 15%;
 }
