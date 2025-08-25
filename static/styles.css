@@ -475,7 +475,7 @@ nav {
   transition: transform 0.3s ease-in-out;
 }
 
-.music__overlay {
+.section__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -489,7 +489,7 @@ nav {
   transition: all 0.3s ease-in-out;
 }
 
-.music__overlay:hover {
+.section__overlay:hover {
   opacity: 1;
 }
 
@@ -521,10 +521,11 @@ nav {
   height: 100%;
   object-fit: cover;
   object-position: 55% 20%;
+  transition: transform 0.3s ease-in-out;
 }
+
 .poster:hover .poster__image {
   transform: scale(1.3);
-  transition: transform 0.3s ease-in-out;
 }
 
 .poster__overlay {

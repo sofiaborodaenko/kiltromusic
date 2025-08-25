@@ -2,17 +2,140 @@
 
 body {
   background-color: var(--main-color);
+  font-family: "Open Sans", sans-serif;
+  color: white;
 }
 
 .hero-video {
   translate: 0% 0%;
 }
 
-.at-top {
-  position: absolute;
-  
+.black-to-blue {
+  z-index: 0;
 }
 
 .main__content {
-    background-color: red;
+  line-height: 174.507%; /* 1.96319rem */
+  letter-spacing: 0.0225rem;
+}
+
+.general-block {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  padding-top: 9rem;
+  z-index: 2;
+}
+
+.text-block {
+  width: 55%;
+}
+
+.image-block {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-block .kiltro_younger_img {
+  width: 80%;
+  object-fit: cover;
+}
+
+.second_block {
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15%;
+}
+
+.poster_img {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.poster_img img {
+  width: 120%;
+  object-fit: cover;
+}
+
+.second_block .text-block {
+  text-align: center;
+}
+
+.full_width_block {
+  width: 100%;
+  height: 130vh;
+}
+
+.full_width_block .image_and_content {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.full_width_block .image_and_content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.full_width_block .at-top,
+.full_width_block .at-bottom {
+  position: relative;
+}
+
+.image_and_content:hover img {
+  transform: scale(1.3);
+}
+
+.section__overlay p {
+  width: 70%;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.third_block {
+  padding-top: 0;
+}
+
+.second_width_block {
+  margin-top: 9rem;
+}
+
+.full_width_block .full-width-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  translate: -5% 0%;
+}
+
+.second_full_width_content {
+  background-color: black;
+}
+
+.second_width_block .text-block {
+  position: absolute;
+  top: 25%;
+  left: 60%;
+  width: 35%;
+}
+
+.second_width_block .center_text {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
 }
