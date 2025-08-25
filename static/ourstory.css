@@ -1,0 +1,18 @@
+@import url("../static/styles.css");
+
+body {
+  background-color: var(--main-color);
+}
+
+.hero-video {
+  translate: 0% 0%;
+}
+
+.at-top {
+  position: absolute;
+  
+}
+
+.main__content {
+    background-color: red;
+}

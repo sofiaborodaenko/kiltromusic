@@ -7,7 +7,7 @@ export function loadNav() {
         <a class="averia-libre-regular" href="index.html">home</a>
           <a class="averia-libre-regular" href="music.html">music</a>
           <a class="averia-libre-regular" href="">live events</a>
-          <a class="averia-libre-regular" href="">our story</a>
+          <a class="averia-libre-regular" href="our_story.html">our story</a>
           <a
             class="averia-libre-regular"
             href="https://kiltro-music.myshopify.com/"
