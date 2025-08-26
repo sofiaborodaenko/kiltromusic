@@ -56,6 +56,11 @@ body {
     flex-direction: column;
   }
 
+  .second_block {
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+
   .image-block {
     width: 100%;
     justify-content: center !important;
@@ -70,6 +75,26 @@ body {
   .two-image-text {
     height: 90%;
   }
+
+  .full_width_block .parallax-image {
+    transform: scale(1);
+  }
+
+  .kiltro_fanclub_img {
+    transform: scale(1);
+  }
+
+  .second_width_block .text-block {
+    top: 0 !important;
+  }
+
+  /* .second_width_block .text-block p {
+    font-size: 12px;
+  }
+
+  .second_width_block .center_text {
+    font-size: 12px;
+  } */
 }
 
 .second_block {
@@ -157,6 +182,7 @@ body {
 .second_general_block {
   padding-top: 0;
   /* position: relative; */
+  margin-top: -2rem;
 }
 
 .left-image .image-block {
@@ -184,6 +210,7 @@ body {
   top: 25%;
   left: 60%;
   width: 35%;
+  height: 35%;
 }
 
 .second_width_block .center_text {
