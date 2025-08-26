@@ -79,23 +79,45 @@ body {
   height: 50%;
   position: relative;
   overflow: hidden;
+
+  /* TRYING OUT SOMETHING */
 }
 
-.full_width_block .image_and_content img {
+.full_width_block .parallax-image {
+  width: 100%;
+  height: 100%;
+  background-image: url("../static/kiltro/kiltro_three.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.kiltro_fanclub_img {
+  background-image: url("../static/kiltro/kiltro_fanclub.png") !important;
+}
+
+/* .full_width_block .image_and_content img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
-}
+} */
 
 .full_width_block .at-top,
 .full_width_block .at-bottom {
   position: relative;
 }
 
-.image_and_content:hover img {
+/* .image_and_content:hover img {
   transform: scale(1.3);
-}
+} */
+
+/* .image_and_content:hover .parallax-image {
+  transform: scale(1.3);
+} */
 
 .full_width_text {
   width: 70%;
@@ -248,5 +270,16 @@ body {
 }
 
 .last_block {
-    margin-top: 15%;
+  margin-top: 15%;
+}
+
+/* .wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+} */
+
+.parallax-wide-blocks {
+  transform: translateZ(-10px) scale(2);
 }
