@@ -1,5 +1,10 @@
 @import url("../static/styles.css");
 
+body,
+html {
+  height: 100%;
+}
+
 body {
   background-color: var(--main-color);
   font-family: "Open Sans", sans-serif;
@@ -43,6 +48,28 @@ body {
 .image-block .kiltro_younger_img {
   width: 80%;
   object-fit: cover;
+}
+
+@media (max-width: 650px) {
+  .general-block,
+  .third_general_block {
+    flex-direction: column;
+  }
+
+  .image-block {
+    width: 100%;
+    justify-content: center !important;
+    padding: 2rem 0 !important;
+  }
+
+  .sixth_block .center_text {
+    padding-top: 1rem !important;
+    padding: 0 5%;
+  }
+
+  .two-image-text {
+    height: 90%;
+  }
 }
 
 .second_block {
@@ -168,6 +195,7 @@ body {
 }
 
 .third_general_block {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,7 +203,7 @@ body {
 
 .sixth_block {
   width: 100%;
-  height: 80vh;
+  /* height: 80vh; */
   margin: 0 auto;
   padding: 0 5%;
   margin-top: 5rem;
@@ -184,7 +212,7 @@ body {
 
 .sixth_block .center_text {
   position: relative;
-  top: 15%;
+  padding-top: 5rem;
 }
 
 .two_image_block {
@@ -194,13 +222,13 @@ body {
   display: flex;
   justify-content: center;
   gap: 7rem;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .image_hover {
   position: relative;
   width: 45%;
-  height: 500px;
+  height: clamp(200px, 40vw, 500px);
 }
 
 .image_hover img {
@@ -238,11 +266,15 @@ body {
 
 .two_image_block .section__overlay {
   border-radius: 0.9375rem;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .two-image-text {
   width: 80%;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: clamp(12px, 3vw, 20px);
+  
 }
 
 .stand-alone-center-text {
@@ -251,6 +283,7 @@ body {
   margin-top: 15%;
   display: flex;
   justify-content: center;
+  padding: 0 5rem;
 }
 
 .stand-alone-center-text .main__button {
