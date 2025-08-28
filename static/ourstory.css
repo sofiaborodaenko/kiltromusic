@@ -62,7 +62,6 @@ body {
   .second_block {
     padding-top: 5rem !important;
     padding-bottom: 5rem !important;
-
   }
 
   .image-block {
@@ -184,14 +183,6 @@ body {
 .full_width_block .at-bottom {
   position: relative;
 }
-
-/* .image_and_content:hover img {
-  transform: scale(1.3);
-} */
-
-/* .image_and_content:hover .parallax-image {
-  transform: scale(1.3);
-} */
 
 .full_width_text {
   width: 70%;
