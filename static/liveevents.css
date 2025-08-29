@@ -4,9 +4,9 @@ body {
   background-color: var(--main-color);
 }
 
-.wrapper * {
+/* .wrapper * {
   border: 1px solid red;
-}
+} */
 
 .hero {
   width: 100%;
@@ -66,6 +66,7 @@ body {
 
 .scroller__inner {
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .image_item {
@@ -91,5 +92,16 @@ body {
 @keyframes scroll {
   to {
     transform: translateY(calc(-50% - 0.5rem));
+  }
+}
+
+@media (max-width: 650px) {
+  .live_events_container {
+    text-align: center;
+    width: 70%;
+  }
+
+  .image_item {
+    height: 7rem;
   }
 }
