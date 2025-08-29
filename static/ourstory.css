@@ -11,6 +11,11 @@ body {
   color: white;
 }
 
+.background-parallax,
+.header-text-parallax {
+  will-change: transform;
+}
+
 .hero-video {
   translate: 0% 0%;
 }

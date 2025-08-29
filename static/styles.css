@@ -99,6 +99,11 @@ a {
   transform: translateZ(-5px) scale(1.5);
 }
 
+.background-parallax,
+.header-text-parallax {
+  will-change: transform;
+}
+
 .hero .text-content {
   width: 30%;
   height: 30%;
@@ -355,7 +360,6 @@ nav {
   gap: 3rem;
   justify-content: center;
   align-items: center;
-  
 }
 
 .music_videos > iframe {
