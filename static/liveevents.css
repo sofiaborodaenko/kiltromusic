@@ -1,0 +1,23 @@
+@import url("../static/styles.css");
+
+body {
+  background-color: var(--main-color);
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event_image_container {
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: center;
+}
