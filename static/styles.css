@@ -351,18 +351,20 @@ nav {
 .music_videos {
   width: 80%;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .music_videos > iframe {
-  flex: 45%;
+  flex: 0 0 35%;
+  max-width: 35%;
+  max-height: 30%;
+  aspect-ratio: 16 / 9;
+  border: none;
 }
-
-/* .iframe_video {
-  width: 15;
-} */
 
 @media (max-width: 650px) {
   .live__dates {
