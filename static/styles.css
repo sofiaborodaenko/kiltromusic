@@ -188,6 +188,7 @@ nav {
   background-color: transparent;
   font-size: 1.1rem;
   color: var(--menu-color);
+  /* mix-blend-mode: difference; */
   margin: 1.44rem 1.56rem;
   padding: 0.5rem 1rem;
   border: none;
@@ -198,6 +199,7 @@ nav {
   display: block;
   font-size: 1.1rem;
   color: var(--menu-color);
+  /* mix-blend-mode: color-dodge; */
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
