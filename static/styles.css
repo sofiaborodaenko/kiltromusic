@@ -301,7 +301,7 @@ nav {
   font-size: var(--menu-size);
 }
 
-.content .event__dates {
+.event__dates {
   display: flex;
   gap: 5.6875rem;
   font-size: var(--body);
@@ -355,7 +355,7 @@ nav {
     transform: translateX(-50%);
     text-align: center;
   }
-  .content .event__dates {
+  .event__dates {
     flex-direction: column;
     gap: 1.5rem;
     width: max-content;
