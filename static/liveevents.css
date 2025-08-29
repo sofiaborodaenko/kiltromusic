@@ -23,11 +23,14 @@ body {
   justify-content: center;
 }
 
+.live_events_container {
+  width: 70%;
+}
+
 .image_scroller {
-    width: 30%;
-    position: relative;
-    top: 0;
-    
+  width: 30%;
+  position: relative;
+  top: 0;
 }
 
 .scroller {
@@ -47,6 +50,7 @@ body {
 .image_item img {
   height: 70%;
   border-radius: 0.9375rem;
+  filter: brightness(0.55);
 }
 
 .right {
@@ -55,7 +59,7 @@ body {
 
 .scroller[data-animated="true"] .scroller__inner {
   animation: scroll 90s linear infinite;
-  /* animation: none; */
+  animation: none;
 }
 
 @keyframes scroll {
