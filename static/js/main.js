@@ -4,6 +4,8 @@ loadNav();
 
 const srcollers = document.querySelectorAll(".scroller");
 const allRevealSections = document.querySelectorAll(".reveal_section");
+const allMobileHoverSections = document.querySelectorAll(".mobile_hover");
+// console.log(allMobileHoverSections);
 
 // Infinite scroller
 
@@ -48,3 +50,28 @@ allRevealSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add("section--hidden");
 });
+
+// Checks if user is on mobile or similar
+const revealHiddenText = function (entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      entry.target.lastElementChild.style.opacity = "0";
+      return;
+    }
+    // console.log(entry);
+    // console.log(entry.target.lastElementChild.classList);
+    entry.target.lastElementChild.style.opacity = "1";
+  });
+};
+
+const mobileObserver = new IntersectionObserver(revealHiddenText, {
+  root: null,
+  threshold: 0.7,
+});
+
+if (window.matchMedia("(hover: none)").matches) {
+  allMobileHoverSections.forEach(function (section) {
+    const parentDiv = section.parentNode;
+    mobileObserver.observe(parentDiv);
+  });
+}

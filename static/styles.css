@@ -434,6 +434,14 @@ nav {
   .get__notified {
     padding-top: 120px;
   }
+
+  .music_videos > iframe {
+    flex: 0 0 50%;
+    max-width: 50%;
+    max-height: 50%;
+    aspect-ratio: 16 / 9;
+    border: none;
+  }
 }
 
 .black-to-blue {
@@ -544,6 +552,12 @@ nav {
   width: 33.33%;
   height: 80vh;
   overflow: hidden;
+}
+
+@media (max-width: 650px) {
+  .shop__section .poster {
+    height: 50vh;
+  }
 }
 
 .poster a {

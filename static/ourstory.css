@@ -270,6 +270,12 @@ body {
   margin-top: 15%;
 }
 
+@media (max-width: 650px) {
+  .two_image_block {
+    gap: 1.5rem;
+  }
+}
+
 .image_hover {
   position: relative;
   width: 45%;
