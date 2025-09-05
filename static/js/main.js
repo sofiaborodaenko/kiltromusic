@@ -75,3 +75,13 @@ if (window.matchMedia("(hover: none)").matches) {
     mobileObserver.observe(parentDiv);
   });
 }
+
+// Checks if user is on Safari to remove the fixed image scrolling problem
+document.addEventListener("DOMContentLoaded", function () {
+  const ua = navigator.userAgent;
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua); // true for Safari only
+
+  if (isSafari) {
+    document.body.classList.add("safari");
+  }
+});

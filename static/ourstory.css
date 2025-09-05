@@ -170,6 +170,10 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
+.safari .full_width_block .parallax-image {
+  background-attachment: scroll;
+}
+
 .kiltro_fanclub_img {
   background-image: url("../static/kiltro/kiltro_fanclub.png") !important;
 }
