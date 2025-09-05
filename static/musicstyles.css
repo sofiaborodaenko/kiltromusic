@@ -124,7 +124,7 @@ a {
 .album__container {
   width: 100%;
   height: 90vh;
-  margin-top: 80px;
+  margin-top: calc(var(--first-section-margin)/2);
   display: flex;
   flex-direction: row;
   z-index: 1;

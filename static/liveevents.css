@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  margin-top: 160px;
+  margin-top: var(--margin-size);
   background-color: transparent !important;
 }
 
