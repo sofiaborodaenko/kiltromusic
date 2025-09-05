@@ -385,8 +385,8 @@ nav {
   .live__dates .content {
     position: absolute;
     top: 0;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+    /* margin-bottom: 2rem; */
+    margin-top: var(--first-section-margin);
     width: 90vw;
     left: 50%;
     transform: translateX(-50%);
@@ -435,7 +435,7 @@ nav {
   }
 
   .get__notified {
-    padding-top: 120px;
+    padding-top: var(--margin-size);
   }
 
   .music_videos > iframe {
@@ -694,7 +694,6 @@ nav {
   .contact__info {
     width: 100%;
     height: auto;
-    margin-top: 2rem;
   }
 
   .contact__details p {
