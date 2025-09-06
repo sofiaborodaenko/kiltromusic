@@ -13,10 +13,9 @@ a {
 }
 
 .hero {
-  /* background-color: var(--main-color); */
-  /* overflow: visible; */
   z-index: 0;
 }
+
 
 .hero__content {
   width: 100%;
@@ -124,7 +123,7 @@ a {
 .album__container {
   width: 100%;
   height: 90vh;
-  margin-top: calc(var(--first-section-margin)/2);
+  margin-top: calc(var(--first-section-margin) / 2);
   display: flex;
   flex-direction: row;
   z-index: 1;
@@ -135,42 +134,6 @@ a {
   top: 10vh;
   z-index: 1;
 }
-
-.second__album__wrapper {
-  height: 140vh;
-  position: relative;
-  /* background-color: blue; */
-  display: flex;
-  align-items: flex-end;
-}
-
-/* .second-album {
-  position: sticky;
-  z-index: 2;
-  height: 50vh;
-  top: 20vh;
-
-} */
-
-.second-album {
-  position: sticky;
-  height: 40%;
-  top: 0;
-  z-index: 1;
-  /* background-color: red; */
-}
-
-/* .album__wrapper {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  perspective: 100px;
-} */
-
-/* .album-parallax {
-  transform: translateZ(-100px) scale(2);
-  z-index: -10;
-} */
 
 .album__image__container {
   width: 65%;
@@ -226,11 +189,6 @@ a {
 
   .footer {
     position: relative;
-    bottom: 0;
+    bottom: -20vh;
   }
-}
-
-.footer {
-  position: relative;
-  bottom: -30vh;
 }
