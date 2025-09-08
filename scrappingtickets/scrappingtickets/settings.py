@@ -1,3 +1,5 @@
+import os
+
 # Scrapy settings for scrappingtickets project
 #
 # For simplicity, this file contains only settings considered important or
@@ -14,12 +16,27 @@ NEWSPIDER_MODULE = "scrappingtickets.spiders"
 
 ADDONS = {}
 
+SCRAPEOPS_API_KEY = os.environ.get("SCRAPEOPS_API_KEY")
+
+SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = "https://headers.scrapeops.io/v1/browser-headers"
+# SCRAPEOPS_FAKE_USER_AGENTS_ENDPOINT = "https://headers.scrapeops.io/v1/user-agents"
+
+SCRAPEOPS_FAKE_BROWSER_HEADER_ENABLED = True
+# SCRAPEOPS_FAKE_USER_AGENTS_ENABLED = True
+
+SCRAPEOPS_NUM_RESULTS = 50
+
+if not SCRAPEOPS_API_KEY:
+    raise ValueError("API key not found")
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "scrappingtickets (+http://www.yourdomain.com)"
 
+
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+
 
 # Concurrency and throttling settings
 #CONCURRENT_REQUESTS = 16
@@ -27,7 +44,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 1
 DOWNLOAD_DELAY = 1
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -46,9 +63,11 @@ DOWNLOAD_DELAY = 1
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
 #    "scrappingtickets.middlewares.ScrappingticketsDownloaderMiddleware": 543,
-#}
+   'scrappingtickets.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
+}
+# lower number has higher priority
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -85,3 +104,15 @@ DOWNLOAD_DELAY = 1
 
 # Set settings whose default value is deprecated to a future-proof value
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+# Enable scrapy-playwright
+DOWNLOAD_HANDLERS = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+}
+
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+
+# Optional: adjust concurrency or page timeout
+PLAYWRIGHT_BROWSER_TYPE = "chromium"
