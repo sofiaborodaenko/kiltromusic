@@ -46,6 +46,19 @@ class TicketspiderSpider(scrapy.Spider):
         for ticket in tickets:
             yield {
                 "date": ticket.css('[data-testid="ItemCardDate"] span::text').getall(),
+                "band": ticket.css('div[class*=styles__ItemCardTitle] span::text').get(),
+                "featured band": ticket.css('div[class*=styles__FeaturedArtists] span::text').get(),
                 "loc": ticket.css('[data-testid="ItemCardLocation"] span::text').get(),
                 "id": ticket.css('a::attr(href)').extract()
             }
+
+
+            # sc-dOfePm ckrUXz c-axs-block Div-sc-6uq8dp hcZwzU c-axs-flex-item styles__ItemCardTitle-sc-e04a8803-11 kIAxPi
+
+            # sc-gnOvAp fmkLZT c-axs-block Div-sc-6uq8dp hcZwzU c-axs-flex-item styles__ItemCardTitle-sc-7d42833d-11 kSEuOg
+
+
+
+            # styles__FeaturedArtists-sc-7d42833d-6 gIxoFL
+
+            # styles__FeaturedArtists-sc-e04a8803-6 bdjAUd
