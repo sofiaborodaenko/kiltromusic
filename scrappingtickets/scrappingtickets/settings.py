@@ -14,6 +14,10 @@ BOT_NAME = "scrappingtickets"
 SPIDER_MODULES = ["scrappingtickets.spiders"]
 NEWSPIDER_MODULE = "scrappingtickets.spiders"
 
+FEEDS = {
+   'ticketdata.json': {'format': 'json', 'overwrite': True}
+}
+
 ADDONS = {}
 
 SCRAPEOPS_API_KEY = os.environ.get("SCRAPEOPS_API_KEY")
