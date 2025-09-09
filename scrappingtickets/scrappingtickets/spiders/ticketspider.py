@@ -7,7 +7,7 @@ class TicketspiderSpider(scrapy.Spider):
     allowed_domains = ["axs.com"]
     start_urls = ["https://axs.com/artists/1108532/kiltro-tickets"]
 
-    def start(self):
+    def start_requests(self):
         for url in self.start_urls:
             yield scrapy.Request(
                 url,
