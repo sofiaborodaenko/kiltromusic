@@ -32,6 +32,7 @@ class SaveToMySQLPipeline:
         # sets up the table for us 
         self.cur.execute("""
             CREATE TABLE IF NOT EXISTS kiltro_tickets (
+                        id INTEGER PRIMARY KEY,
                         date VARCHAR(255),
                         band VARCHAR(255),
                         featured_band VARCHAR(255),
@@ -45,21 +46,22 @@ class SaveToMySQLPipeline:
     def process_item(self, item, spider):
 
         self.cur.execute(""" 
-            insert into kiltro_tickets (
+            insert ignore into kiltro_tickets (
+                        id,
                         date, 
                         band, 
                         featured_band, 
                         location, 
                         link_id
                         ) values (
-                        %s, %s, %s, %s, %s
+                        %s, %s, %s, %s, %s, %s
                         )""", (
+                                int(item['id'][0][8:14]),
                                 item['date'],
                                 item['band'],
                                 item['featured band'],
                                 item['loc'],
                                 str(item['id'][0])
-                                
                         ))
         
         self.conn.commit()
