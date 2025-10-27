@@ -1,5 +1,6 @@
 import scrapy
 import random
+from datetime import datetime
 
 # "https://axs.com/artists/1108532/kiltro-tickets"
 
@@ -7,6 +8,21 @@ class TicketspiderSpider(scrapy.Spider):
     name = "ticketspider"
     allowed_domains = ["axs.com"]
     start_urls = "https://axs.com/artists/1108532/kiltro-tickets"
+
+    _month_format = {
+        "Jan": 1,
+        "Feb": 2,
+        "Mar": 3,
+        "Apr": 4,
+        "May": 5,
+        "Jun": 6,
+        "Jul": 7,
+        "Aug": 8,
+        "Sept": 9,
+        "Oct": 10,
+        "Nov": 11,
+        "Dec": 12,
+        }
 
     async def start(self):
         yield scrapy.Request(
@@ -46,8 +62,10 @@ class TicketspiderSpider(scrapy.Spider):
         for ticket in tickets:
             date_parts = ticket.css('[data-testid="ItemCardDate"] span::text').getall()[1:4]
             date = ' '.join(date_parts)
+            date_datetime = datetime(int(date_parts[2]), self._month_format[date_parts[0]], int(date_parts[1]))
             yield {
                 "date": date,
+                "timestamp": int(date_datetime.timestamp()),
                 "band": ticket.css('div[class*=styles__ItemCardTitle] span::text').get(),
                 "featured band": ticket.css('div[class*=styles__FeaturedArtists] span::text').get(),
                 "loc": ticket.css('[data-testid="ItemCardLocation"] span::text').get(),

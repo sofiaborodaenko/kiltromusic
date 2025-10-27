@@ -34,6 +34,7 @@ class SaveToMySQLPipeline:
             CREATE TABLE IF NOT EXISTS kiltro_tickets (
                         id INTEGER PRIMARY KEY,
                         date VARCHAR(255),
+                        timestamp INTEGER,
                         band VARCHAR(255),
                         featured_band VARCHAR(255),
                         location VARCHAR(255), 
@@ -49,15 +50,17 @@ class SaveToMySQLPipeline:
             insert ignore into kiltro_tickets (
                         id,
                         date, 
+                        timestamp,
                         band, 
                         featured_band, 
                         location, 
                         link_id
                         ) values (
-                        %s, %s, %s, %s, %s, %s
+                        %s, %s, %s, %s, %s, %s, %s
                         )""", (
                                 int(item['id'][0][8:14]),
                                 item['date'],
+                                item['timestamp'],
                                 item['band'],
                                 item['featured band'],
                                 item['loc'],
