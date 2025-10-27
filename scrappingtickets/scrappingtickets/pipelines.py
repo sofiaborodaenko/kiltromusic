@@ -6,8 +6,67 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+from dotenv import load_dotenv
+import os
+import mysql.connector
 
+load_dotenv()
 
 class ScrappingticketsPipeline:
     def process_item(self, item, spider):
         return item
+    
+
+class SaveToMySQLPipeline:
+    def __init__(self):
+        self.conn = mysql.connector.connect(
+            host=os.getenv("DB_HOST"),
+            user = os.getenv("DB_USER"),
+            password = os.getenv("DB_PASS"),
+            database = os.getenv("DB_NAME")
+        )
+
+        # create cursor, used to execute commands
+        self.cur = self.conn.cursor()
+
+        # sets up the table for us 
+        self.cur.execute("""
+            CREATE TABLE IF NOT EXISTS kiltro_tickets (
+                        date VARCHAR(255),
+                        band VARCHAR(255),
+                        featured_band VARCHAR(255),
+                        location VARCHAR(255), 
+                        link_id VARCHAR(255)
+                        )
+                        """)
+        
+        #, PRIMARY KEY (id)
+        
+    def process_item(self, item, spider):
+
+        self.cur.execute(""" 
+            insert into kiltro_tickets (
+                        date, 
+                        band, 
+                        featured_band, 
+                        location, 
+                        link_id
+                        ) values (
+                        %s, %s, %s, %s, %s
+                        )""", (
+                                item['date'],
+                                item['band'],
+                                item['featured band'],
+                                item['loc'],
+                                str(item['id'][0])
+                                
+                        ))
+        
+        self.conn.commit()
+        return item
+    
+    def close_spider(self, spider):
+        self.cur.close()
+        self.conn.close()
+
+    

@@ -1,16 +1,4 @@
 [
-  {
-    "date": ["Tue ", "Dec", "30", "2025", "9:00 PM"],
-    "band": "The Budos Band",
-    "featured band": "Kiltro",
-    "loc": "Gothic Theatre, Englewood",
-    "id": ["/events/922225"]
-  },
-  {
-    "date": ["Wed ", "Dec", "31", "2025", "9:00 PM"],
-    "band": "The Budos Band",
-    "featured band": "Kiltro",
-    "loc": "Gothic Theatre, Englewood",
-    "id": ["/events/925868"]
-  }
+{"date": "Dec 30 2025", "band": "The Budos Band", "featured band": "Kiltro", "loc": "Gothic Theatre, Englewood", "id": ["/events/922225"]},
+{"date": "Dec 31 2025", "band": "The Budos Band", "featured band": "Kiltro", "loc": "Gothic Theatre, Englewood", "id": ["/events/925868"]}
 ]

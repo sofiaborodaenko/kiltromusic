@@ -1,4 +1,8 @@
 import os
+from typing import override
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Scrapy settings for scrappingtickets project
 #
@@ -20,7 +24,7 @@ FEEDS = {
 
 ADDONS = {}
 
-SCRAPEOPS_API_KEY = os.environ.get("SCRAPEOPS_API_KEY")
+SCRAPEOPS_API_KEY = os.getenv("SCRAPEOPS_API_KEY")
 
 SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = "https://headers.scrapeops.io/v1/browser-headers"
 # SCRAPEOPS_FAKE_USER_AGENTS_ENDPOINT = "https://headers.scrapeops.io/v1/user-agents"
@@ -81,9 +85,10 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "scrappingtickets.pipelines.ScrappingticketsPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "scrappingtickets.pipelines.ScrappingticketsPipeline": 300,
+   "scrappingtickets.pipelines.SaveToMySQLPipeline": 400,
+} 
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -120,3 +125,7 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 
 # Optional: adjust concurrency or page timeout
 PLAYWRIGHT_BROWSER_TYPE = "chromium"
+
+FEEDS = {
+    'ticketdata.json': {'format': 'json', 'overwrite': True}
+}

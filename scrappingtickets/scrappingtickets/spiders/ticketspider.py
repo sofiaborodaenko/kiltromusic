@@ -44,8 +44,10 @@ class TicketspiderSpider(scrapy.Spider):
 
         tickets = response.css('[data-testid="MusicEventItemCard"]')
         for ticket in tickets:
+            date_parts = ticket.css('[data-testid="ItemCardDate"] span::text').getall()[1:4]
+            date = ' '.join(date_parts)
             yield {
-                "date": ticket.css('[data-testid="ItemCardDate"] span::text').getall(),
+                "date": date,
                 "band": ticket.css('div[class*=styles__ItemCardTitle] span::text').get(),
                 "featured band": ticket.css('div[class*=styles__FeaturedArtists] span::text').get(),
                 "loc": ticket.css('[data-testid="ItemCardLocation"] span::text').get(),
