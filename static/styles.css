@@ -247,6 +247,9 @@ nav {
   position: relative;
   width: 100%;
   background-color: var(--main-color);
+  z-index: 1;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .live__dates {
