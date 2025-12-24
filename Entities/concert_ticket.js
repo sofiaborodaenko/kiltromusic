@@ -5,16 +5,14 @@ export class ConcertTicket {
     #date;
     #timestamp;
     #location;
-    #linkId;
 
-    constructor(id, band, featuredBand, date, timestamp, location, linkId) {
+    constructor(id, band, featuredBand, date, timestamp, location) {
         this.#id = id;
         this.#band = band;
         this.#featuredBand = featuredBand;
         this.#date = date;
         this.#timestamp = timestamp;
         this.#location = location;
-        this.#linkId = linkId;
     }
 
     getId() {
@@ -39,9 +37,5 @@ export class ConcertTicket {
 
     getLocation() {
         return this.#location;
-    }
-
-    getLinkId() {
-        return this.#linkId;
     }
 }

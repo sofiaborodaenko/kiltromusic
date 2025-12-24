@@ -3,17 +3,26 @@ import { ConcertTicket } from "../Entities/concert_ticket.js";
 
 export class TicketsDAO {
 
-  constructor() {
-    this.AllTickets = new AllTickets();
-    this.ConcertTicket = new ConcertTicket();
+  constructor(allTickets) {
+    this.allTickets = allTickets;
+    this.concertTicket = new ConcertTicket();
   }
 
-  populateTickets() {
-    fetch("../scrappingtickets/ticketdata.json")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => console.error("Error fetching ticket data:", error));
-  }
+    async populateTickets() {
+
+        try {
+            const response = await fetch("../scrappingtickets/ticketdata.json");
+            const data = await response.json();
+
+            data.forEach(ticket => {
+                this.concertTicket = new ConcertTicket(ticket["id"][0], ticket["band"], ticket["featuredBand"], ticket["date"], ticket["timestamp"], ticket["loc"]);
+                this.allTickets.addTicket(this.concertTicket);
+            });
+
+        } catch (error) {
+            console.error("Error fetching ticket data:", error);
+        }
+
+    }
+
 }

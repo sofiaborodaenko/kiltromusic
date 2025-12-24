@@ -5,32 +5,26 @@ import { AllTickets } from "../../Entities/all_tickets.js";
 loadNav();
 
 class LiveEvents {
-    #tickets = [];
 
-    constructor() {
-        this.AllTickets = new AllTickets();
+    constructor(allTickets) {
+        this.allTickets = allTickets;
     }
 
     getEvents() {
-
-        if (this.#tickets.length === 0) {
-            this.#tickets = this.AllTickets.getTickets();
-            return this.#tickets;
-        } else if (this.#tickets === this.AllTickets.getTickets()) {
-          return this.#tickets;
-        } else {
-          return this.AllTickets.getTickets();
-        }
+        return this.allTickets.getTickets();
 
     }
 
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const liveEvents = new LiveEvents();
-    const ticketsDAO = new TicketsDAO(); 
+document.addEventListener("DOMContentLoaded", async () => {
+    const allTickets = new AllTickets();
+    const ticketsDAO = new TicketsDAO(allTickets); 
+    const liveEvents = new LiveEvents(allTickets);
+    
+    await ticketsDAO.populateTickets();
     console.log(liveEvents.getEvents());
-    ticketsDAO.populateTickets();
+    
 });
 
 
