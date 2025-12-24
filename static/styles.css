@@ -741,3 +741,7 @@ nav {
   margin-right: 2.5rem;
   font-size: 16px;
 }
+
+.footer .credit:hover {
+  color: var(--emphasize_brighter);
+}
