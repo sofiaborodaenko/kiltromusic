@@ -1,4 +1,8 @@
 import { loadNav } from "./nav.js";
+import { AllTickets } from "../../Entities/all_tickets.js";
+import { TicketsDAO } from "../../DAO/tickets_dao.js";
+import { LiveEvents } from "../js/liveEvents.js";
+import { renderTickets } from "../js/liveEvents.js";
 
 loadNav();
 
@@ -77,11 +81,19 @@ if (window.matchMedia("(hover: none)").matches) {
 }
 
 // Checks if user is on Safari to remove the fixed image scrolling problem
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const ua = navigator.userAgent;
   const isSafari = /^((?!chrome|android).)*safari/i.test(ua); // true for Safari only
 
   if (isSafari) {
     document.body.classList.add("safari");
   }
+
+  const allTickets = new AllTickets();
+  const ticketsDAO = new TicketsDAO(allTickets);
+  const liveEvents = new LiveEvents(allTickets);
+
+  await ticketsDAO.populateTickets();
+
+  renderTickets(allTickets.getTickets(), 2);
 });

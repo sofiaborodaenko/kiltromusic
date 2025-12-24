@@ -4,7 +4,7 @@ import { AllTickets } from "../../Entities/all_tickets.js";
 
 loadNav();
 
-class LiveEvents {
+export class LiveEvents {
 
     constructor(allTickets) {
         this.allTickets = allTickets;
@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     
 });
 
-function renderTickets(tickets) {
+export function renderTickets(tickets, max = tickets.length) {
     const container = document.getElementById("live_events_container");
     container.innerHTML = "";
 
-    tickets.forEach(ticket => {
+    tickets.splice(0, max).forEach(ticket => {
         const ticketElement = document.createElement("div");
         ticketElement.classList.add("event__dates");
         ticketElement.innerHTML = `
@@ -41,11 +41,10 @@ function renderTickets(tickets) {
             <p>w/ ${ticket.getFeaturedBand()}</p>
             </div>
             <p>${ticket.getLocation()}</p>
-            <button class="main__button" onclick="window.location.href='https://www.axs.com${ticket.getId()}'">Buy Tickets</button>
+            <button class="main__button" onclick="window.open('https://www.axs.com${ticket.getId()}', '_blank')">Buy Tickets</button>
         `;
         container.appendChild(ticketElement);
     });
-
     
 }
 

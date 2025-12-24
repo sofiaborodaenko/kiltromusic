@@ -298,8 +298,9 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: 20%;
   margin: 5% auto;
+  width: 100%;
+  height: 80vh;
 }
 
 .content h3 {
@@ -309,6 +310,13 @@ nav {
 .bold {
   font-weight: 650;
   font-size: var(--menu-size);
+}
+
+.content #live_events_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .event__dates {
@@ -325,6 +333,11 @@ nav {
 .event__dates .date {
   width: max-content;
   line-height: 2;
+}
+
+.content .view_more_events {
+  margin-top: auto;
+  align-self: center;
 }
 
 .main__button {
@@ -388,6 +401,7 @@ nav {
     /* margin-bottom: 2rem; */
     margin-top: var(--first-section-margin);
     width: 90vw;
+    height: 100vh;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
