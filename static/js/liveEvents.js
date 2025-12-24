@@ -24,8 +24,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     await ticketsDAO.populateTickets();
     console.log(liveEvents.getEvents());
+    renderTickets(allTickets.getTickets());
     
 });
+
+function renderTickets(tickets) {
+    const container = document.getElementById("live_events_container");
+    container.innerHTML = "";
+
+    tickets.forEach(ticket => {
+        const ticketElement = document.createElement("div");
+        ticketElement.classList.add("event__dates");
+        ticketElement.innerHTML = `
+            <div class="date">
+            <p class="emphasize bold"> ${ticket.getDate()}</p>
+            <p>w/ ${ticket.getFeaturedBand()}</p>
+            </div>
+            <p>${ticket.getLocation()}</p>
+            <button class="main__button" onclick="window.location.href='https://www.axs.com${ticket.getId()}'">Buy Tickets</button>
+        `;
+        container.appendChild(ticketElement);
+    });
+
+    
+}
 
 
 

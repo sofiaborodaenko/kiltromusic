@@ -375,7 +375,7 @@ nav {
   border: none;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 800px) {
   .live__dates {
     position: relative;
     flex-direction: column;
@@ -424,7 +424,7 @@ nav {
     /* top: 25%;
   left: 45.5%; */
     top: 10.5rem;
-    left: 10.5rem;
+    left: 12.5rem;
   }
 
   #rainbow_image {

@@ -15,7 +15,12 @@ export class TicketsDAO {
             const data = await response.json();
 
             data.forEach(ticket => {
-                this.concertTicket = new ConcertTicket(ticket["id"][0], ticket["band"], ticket["featuredBand"], ticket["date"], ticket["timestamp"], ticket["loc"]);
+                this.concertTicket = new ConcertTicket(ticket["id"][0], ticket["featured band"], ticket["date"], ticket["timestamp"], ticket["loc"]);
+
+                if (ticket["band"] !== "kiltro") {
+                    this.concertTicket.setFeaturedBand(ticket["band"]);
+                }
+
                 this.allTickets.addTicket(this.concertTicket);
             });
 
