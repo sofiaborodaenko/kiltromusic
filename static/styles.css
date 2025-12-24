@@ -12,6 +12,7 @@
   --scroller-size: 1.5rem;
 
   --emphasize: #89405c;
+  --emphasize_brighter: #d3628d;
   --main-color: #1e1e28;
   --menu-color: #cc9a99;
 
@@ -411,6 +412,10 @@ nav {
     gap: 1.5rem;
     width: max-content;
     margin: 0 auto;
+  }
+
+  .event__dates .emphasize {
+    color: var(--emphasize_brighter);
   }
 
   .live__dates .images {
