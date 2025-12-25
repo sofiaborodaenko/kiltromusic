@@ -11,7 +11,7 @@ export class TicketsDAO {
     async populateTickets() {
 
         try {
-            const response = await fetch("../scrappingtickets/ticketdata.json");
+            const response = await fetch("../data/ticketdata.json");
             const data = await response.json();
 
             data.forEach(ticket => {

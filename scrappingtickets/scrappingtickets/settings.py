@@ -127,5 +127,5 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 PLAYWRIGHT_BROWSER_TYPE = "chromium"
 
 FEEDS = {
-    'ticketdata.json': {'format': 'json', 'overwrite': True}
+    '../../../data/ticketdata.json': {'format': 'json', 'overwrite': True}
 }
