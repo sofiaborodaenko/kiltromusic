@@ -30,11 +30,11 @@ ADDONS = {}
 
 SCRAPEOPS_API_KEY = os.getenv("SCRAPEOPS_API_KEY")
 
-SCRAPEOPS_PROXY_LIST = [
-    '189.201.191.67:4145',
-    '177.105.68.123:4153',
-    '43.134.164.175:443',
-]
+# SCRAPEOPS_PROXY_LIST = [
+#     '189.201.191.67:4145',
+#     '177.105.68.123:4153',
+#     '43.134.164.175:443',
+# ]
 
 SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = "https://headers.scrapeops.io/v1/browser-headers"
 # SCRAPEOPS_FAKE_USER_AGENTS_ENDPOINT = "https://headers.scrapeops.io/v1/user-agents"
@@ -84,8 +84,8 @@ COOKIES_ENABLED = False
 DOWNLOADER_MIDDLEWARES = {
 #    "scrappingtickets.middlewares.ScrappingticketsDownloaderMiddleware": 543,
    'scrappingtickets.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
-   'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
-   'rotating_proxies.middlewares.BanDetectionMiddleware': 620
+#    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+#    'rotating_proxies.middlewares.BanDetectionMiddleware': 620
 }
 # lower number has higher priority
 
@@ -137,3 +137,13 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 
 # Optional: adjust concurrency or page timeout
 PLAYWRIGHT_BROWSER_TYPE = "chromium"
+
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    "headless": True,
+    "proxy": {
+        "server": "http://proxy.scrapeops.io:5353",
+        "username": "scrapeops",
+        "password": os.getenv("SCRAPEOPS_API_KEY"),
+    },
+}
+
