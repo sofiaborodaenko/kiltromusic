@@ -140,11 +140,16 @@ PLAYWRIGHT_BROWSER_TYPE = "chromium"
 
 PLAYWRIGHT_LAUNCH_OPTIONS = {
     "headless": True,
-    "ignore_https_errors": True,
     "proxy": {
         "server": "http://proxy.scrapeops.io:5353",
         "username": "scrapeops",
         "password": os.getenv("SCRAPEOPS_API_KEY"),
     },
+}
+
+PLAYWRIGHT_CONTEXTS = {
+    "default": {
+        "ignore_https_errors": True,
+    }
 }
 
