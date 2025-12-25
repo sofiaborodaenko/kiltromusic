@@ -30,7 +30,7 @@ jobs:
             
           run: |
               cd scrappingtickets
-              scrapy crawl tickets_spider
+              scrapy crawl ticketspider
 
         - name: Commit and push changes
           uses: stefanzweifel/git-auto-commit-action@v4
