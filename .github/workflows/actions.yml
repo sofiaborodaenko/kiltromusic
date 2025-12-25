@@ -21,6 +21,13 @@ jobs:
             pip install -r requirements.txt
 
         - name: Run web scraper
+          env: 
+            DB_HOST: ${{ secrets.DB_HOST }}
+            DB_USER: ${{ secrets.DB_USER }}
+            DB_PASS: ${{ secrets.DB_PASS }}
+            DB_NAME: ${{ secrets.DB_NAME }}
+            SCRAPEOPS_API_KEY: ${{ secrets.SCRAPEOPS_API_KEY }}
+            
           run: |
               cd scrappingtickets
               scrapy crawl tickets_spider
