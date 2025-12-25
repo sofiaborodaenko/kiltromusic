@@ -18,8 +18,12 @@ BOT_NAME = "scrappingtickets"
 SPIDER_MODULES = ["scrappingtickets.spiders"]
 NEWSPIDER_MODULE = "scrappingtickets.spiders"
 
+# Go up two levels to save the data
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+
 FEEDS = {
-   'ticketdata.json': {'format': 'json', 'overwrite': True}
+    os.path.join(DATA_DIR, 'ticketdata.json'): {'format': 'json', 'overwrite': True}
 }
 
 ADDONS = {}
@@ -87,7 +91,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    "scrappingtickets.pipelines.ScrappingticketsPipeline": 300,
-   "scrappingtickets.pipelines.SaveToMySQLPipeline": 400,
+   "scrappingtickets.pipelines.SaveToPostgreSQLPipeline": 400,
 } 
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -125,7 +129,3 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 
 # Optional: adjust concurrency or page timeout
 PLAYWRIGHT_BROWSER_TYPE = "chromium"
-
-FEEDS = {
-    '../../../data/ticketdata.json': {'format': 'json', 'overwrite': True}
-}

@@ -8,7 +8,7 @@
 from itemadapter import ItemAdapter
 from dotenv import load_dotenv
 import os
-import mysql.connector
+import psycopg2
 
 load_dotenv()
 
@@ -17,37 +17,36 @@ class ScrappingticketsPipeline:
         return item
     
 
-class SaveToMySQLPipeline:
+class SaveToPostgreSQLPipeline:
     def __init__(self):
-        self.conn = mysql.connector.connect(
+        self.conn = psycopg2.connect(
             host=os.getenv("DB_HOST"),
-            user = os.getenv("DB_USER"),
-            password = os.getenv("DB_PASS"),
-            database = os.getenv("DB_NAME")
+            port=os.getenv("DB_PORT"),
+            dbname=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASS"),
+            sslmode="require"
         )
 
-        # create cursor, used to execute commands
-        self.cur = self.conn.cursor()
+        self.cur=self.conn.cursor()
 
-        # sets up the table for us 
         self.cur.execute("""
             CREATE TABLE IF NOT EXISTS kiltro_tickets (
                         id INTEGER PRIMARY KEY,
-                        date VARCHAR(255),
-                        timestamp INTEGER,
-                        band VARCHAR(255),
-                        featured_band VARCHAR(255),
-                        location VARCHAR(255), 
-                        link_id VARCHAR(255)
-                        )
-                        """)
+                        date TEXT,
+                         timestamp INTEGER,
+                        band TEXT,
+                        featured_band TEXT,
+                        location TEXT,
+                        link_id TEXT
+                        );
+            """)
         
-        #, PRIMARY KEY (id)
-        
+        self.conn.commit()
+    
     def process_item(self, item, spider):
-
-        self.cur.execute(""" 
-            insert ignore into kiltro_tickets (
+        self.cur.execute("""
+            INSERT INTO kiltro_tickets (
                         id,
                         date, 
                         timestamp,
@@ -55,17 +54,18 @@ class SaveToMySQLPipeline:
                         featured_band, 
                         location, 
                         link_id
-                        ) values (
+                        ) VALUES (
                         %s, %s, %s, %s, %s, %s, %s
-                        )""", (
-                                int(item['id'][0][8:14]),
-                                item['date'],
-                                item['timestamp'],
-                                item['band'],
-                                item['featured band'],
-                                item['loc'],
-                                str(item['id'][0])
-                        ))
+                        ) ON CONFLICT (id) DO NOTHING;
+            """, (
+                int(item['id'][0][8:14]),
+                item['date'],
+                item['timestamp'],
+                item['band'],
+                item['featured band'],
+                item['loc'],
+                str(item['id'][0])
+            ))
         
         self.conn.commit()
         return item
@@ -73,5 +73,3 @@ class SaveToMySQLPipeline:
     def close_spider(self, spider):
         self.cur.close()
         self.conn.close()
-
-    
