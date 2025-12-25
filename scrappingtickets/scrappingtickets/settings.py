@@ -29,6 +29,7 @@ FEEDS = {
 ADDONS = {}
 
 SCRAPEOPS_API_KEY = os.getenv("SCRAPEOPS_API_KEY")
+SCRAPEOPS_PROXY_ENABLED = True
 
 # SCRAPEOPS_PROXY_LIST = [
 #     '189.201.191.67:4145',
@@ -86,6 +87,7 @@ DOWNLOADER_MIDDLEWARES = {
    'scrappingtickets.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
 #    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
 #    'rotating_proxies.middlewares.BanDetectionMiddleware': 620
+    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
 }
 # lower number has higher priority
 
@@ -138,18 +140,30 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 # Optional: adjust concurrency or page timeout
 PLAYWRIGHT_BROWSER_TYPE = "chromium"
 
-PLAYWRIGHT_LAUNCH_OPTIONS = {
-    "headless": True,
-    "proxy": {
-        "server": "http://proxy.scrapeops.io:5353",
-        "username": "scrapeops",
-        "password": os.getenv("SCRAPEOPS_API_KEY"),
-    },
-}
+# PLAYWRIGHT_LAUNCH_OPTIONS = {
+#     "headless": True,
+#     "proxy": {
+#         "server": "http://proxy.scrapeops.io:5353",
+#         "username": "scrapeops",
+#         "password": os.getenv("SCRAPEOPS_API_KEY"),
+#     },
+# }
 
-PLAYWRIGHT_CONTEXTS = {
-    "default": {
-        "ignore_https_errors": True,
-    }
-}
+# PLAYWRIGHT_CONTEXTS = {
+#     "default": {
+#         "ignore_https_errors": True,
+#     }
+# }
 
+# import requests
+
+# response = requests.get(
+# url='https://proxy.scrapeops.io/v1/',
+# params={
+#         'api_key': 'e92cce3a-caab-456c-b47f-ad618573e305',
+#         'url': 'https://quotes.toscrape.com', 
+#     },
+# )
+
+# print('Response Body: ', response.content)
+        
