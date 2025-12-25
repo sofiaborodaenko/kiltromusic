@@ -144,7 +144,7 @@ PLAYWRIGHT_BROWSER_TYPE = "chromium"
 # Retrieved 2025-12-25, License - CC BY-SA 4.0
 
 PLAYWRIGHT_LAUNCH_OPTIONS = {
-    "headless": False,
+    "headless": True,
     "proxy": {
         "server": "http://proxy.scrapeops.io:5353",
         "username": "scrapeops",
