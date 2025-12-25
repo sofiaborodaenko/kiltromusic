@@ -334,6 +334,17 @@ nav {
   backdrop-filter: blur(4.050000190734863px);
 }
 
+.no__events {
+  width: 80%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.9375rem;
+  background: rgba(30, 30, 40, 0.48);
+  backdrop-filter: blur(4.050000190734863px);
+}
+
 .event__dates .date {
   width: max-content;
   line-height: 2;

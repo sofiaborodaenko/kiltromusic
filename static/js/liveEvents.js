@@ -32,6 +32,16 @@ export function renderTickets(tickets, max = tickets.length) {
     const container = document.getElementById("live_events_container");
     container.innerHTML = "";
 
+    if (tickets.length === 0) {
+        container.innerHTML = `
+            <div class="no__events">
+            <p>No upcoming events at the moment. Please check back later.</p>
+            </div>
+        
+        `;
+        return;
+    }
+
     tickets.splice(0, max).forEach(ticket => {
         const ticketElement = document.createElement("div");
         ticketElement.classList.add("event__dates");

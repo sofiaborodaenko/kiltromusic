@@ -47,6 +47,10 @@ body {
   width: 100%;
 }
 
+.no__events {
+  align-self: center;
+}
+
 .scroller_image_container {
   width: 100%;
   display: flex;

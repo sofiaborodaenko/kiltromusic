@@ -1,6 +1,7 @@
 import scrapy
 import random
 from datetime import datetime
+import asyncio
 
 # "https://axs.com/artists/1108532/kiltro-tickets"
 
@@ -32,7 +33,7 @@ class TicketspiderSpider(scrapy.Spider):
                 "playwright_include_page": True,
                 "playwright_page_goto_kwargs": {
                    "wait_until": "domcontentloaded",
-                   "timeout": 60000,
+                   "timeout": 100000,
                 },
             },
             callback=self.parse, # what function is called after
@@ -47,6 +48,8 @@ class TicketspiderSpider(scrapy.Spider):
                 await page.wait_for_selector('button[data-testid="SeeMoreButton"]', timeout=3000)
 
                 await page.click('button[data-testid="SeeMoreButton"]')
+
+                await asyncio.sleep(3)
                 # wait for new items to load
                 await page.wait_for_selector('[data-testid="MusicEventItemCard"]')
                 self.logger.info("Clicked 'Load More'")
