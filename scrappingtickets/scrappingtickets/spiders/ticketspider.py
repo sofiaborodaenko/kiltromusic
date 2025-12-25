@@ -44,7 +44,7 @@ class TicketspiderSpider(scrapy.Spider):
         while True:
             try:
                 # wait for the button (short timeout so loop can break)
-                await page.wait_for_selector('button[data-testid="SeeMoreButton"]', timeout=1000)
+                await page.wait_for_selector('button[data-testid="SeeMoreButton"]', timeout=3000)
 
                 await page.click('button[data-testid="SeeMoreButton"]')
                 # wait for new items to load

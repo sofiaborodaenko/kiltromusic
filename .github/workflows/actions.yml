@@ -52,8 +52,11 @@ jobs:
               username: ${{ secrets.EMAIL_USERNAME }}
               password: ${{ secrets.EMAIL_PASSWORD }}
               subject: Ticket Data Updated
-              body: The ticket data has been successfully updated and committed to the repository.
+              body: |
+                The ticket data has been successfully updated and committed to the repository.
+
+                ${{ steps.auto-commit-action.outputs.committed }}
               to: soph.bor06@gmail.com
               from: Scrappy Web Server
-              html_body: file://data/ticketdata.json
-              convert_markdown: true
+              attachments: data/ticketdata.json
+                
