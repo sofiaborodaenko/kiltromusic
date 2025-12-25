@@ -1,6 +1,6 @@
 # kiltromusic
 
-Using Supabase as the database 
+Using Supabase as the database <br>
 Using Scrapeops for the scraping and proxy (used up all the credits LOL)
 
 Todo: 
