@@ -76,9 +76,9 @@ COOKIES_ENABLED = False
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    "scrappingtickets.middlewares.ScrappingticketsSpiderMiddleware": 543,
-#}
+SPIDER_MIDDLEWARES = {
+   "scrapy.spidermiddlewares.offsite.OffsiteMiddleware": None,
+}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
@@ -86,8 +86,7 @@ DOWNLOADER_MIDDLEWARES = {
 #    "scrappingtickets.middlewares.ScrappingticketsDownloaderMiddleware": 543,
    'scrappingtickets.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
 #    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
-#    'rotating_proxies.middlewares.BanDetectionMiddleware': 620
-    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+#    'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
 }
 # lower number has higher priority
 
@@ -140,30 +139,21 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 # Optional: adjust concurrency or page timeout
 PLAYWRIGHT_BROWSER_TYPE = "chromium"
 
-# PLAYWRIGHT_LAUNCH_OPTIONS = {
-#     "headless": True,
-#     "proxy": {
-#         "server": "http://proxy.scrapeops.io:5353",
-#         "username": "scrapeops",
-#         "password": os.getenv("SCRAPEOPS_API_KEY"),
-#     },
-# }
+# Source - https://stackoverflow.com/q
+# Posted by Icarso6
+# Retrieved 2025-12-25, License - CC BY-SA 4.0
 
-# PLAYWRIGHT_CONTEXTS = {
-#     "default": {
-#         "ignore_https_errors": True,
-#     }
-# }
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    "headless": False,
+    "proxy": {
+        "server": "http://proxy.scrapeops.io:5353",
+        "username": "scrapeops",
+        "password": os.getenv("SCRAPEOPS_API_KEY"),
+    },
+}
 
-# import requests
-
-# response = requests.get(
-# url='https://proxy.scrapeops.io/v1/',
-# params={
-#         'api_key': 'e92cce3a-caab-456c-b47f-ad618573e305',
-#         'url': 'https://quotes.toscrape.com', 
-#     },
-# )
-
-# print('Response Body: ', response.content)
-        
+PLAYWRIGHT_CONTEXTS = {
+    "default": {
+        "ignore_https_errors": True,
+    }
+}

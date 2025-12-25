@@ -7,7 +7,7 @@ from datetime import datetime
 class TicketspiderSpider(scrapy.Spider):
     name = "ticketspider"
     allowed_domains = ["axs.com"]
-    start_urls = "https://axs.com/artists/1108532/kiltro-tickets"
+    start_urls = "https://www.axs.com/artists/110538/eric-church-tickets"
 
     _month_format = {
         "Jan": 1,
@@ -30,6 +30,10 @@ class TicketspiderSpider(scrapy.Spider):
             meta={
                 "playwright": True,
                 "playwright_include_page": True,
+                "playwright_page_goto_kwargs": {
+                   "wait_until": "domcontentloaded",
+                   "timeout": 60000,
+                },
             },
             callback=self.parse, # what function is called after
         )
