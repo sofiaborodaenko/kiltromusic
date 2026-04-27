@@ -1,0 +1,194 @@
+@import url("../static/styles.css");
+
+body {
+  background-color: var(--main-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+.stream__btn__container a {
+  width: 100%;
+}
+
+.hero {
+  z-index: 0;
+}
+
+
+.hero__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+  padding-bottom: 5rem;
+  z-index: 0;
+}
+
+.hero-content-parallax {
+  transform: translateZ(-10px) scale(2);
+  z-index: -10;
+}
+
+.blue-to-black {
+  height: 50rem;
+  /* z-index: -10; */
+}
+
+.black-to-blue {
+  z-index: 0;
+}
+
+.at-bottom {
+  position: absolute;
+  bottom: -20rem;
+}
+
+.stick {
+  position: sticky;
+  top: 0;
+}
+
+.left__side__music__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.new_album_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right__side__music__content {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.underbelly__album__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 650px) {
+  .hero__content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .left__side__music__content,
+  .right__side__music__content {
+    width: 100%;
+  }
+
+  .left__side__music__content {
+    /* padding-top: 30%; */
+  }
+
+  .underbelly__album__image {
+    /* transform: translateY(-15%); */
+  }
+
+  .album__shade {
+    width: 100%;
+    height: 3rem;
+    top: -10rem;
+    left: -1rem;
+  }
+}
+
+.albums__container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-color);
+  /* transform-style: preserve-3d; */
+}
+
+.album__container {
+  width: 100%;
+  height: 90vh;
+  margin-top: calc(var(--first-section-margin) / 2);
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+}
+
+.first-album {
+  position: sticky;
+  top: 10vh;
+  z-index: 1;
+}
+
+.album__image__container {
+  width: 65%;
+  /* overflow: hidden; */
+}
+
+.album_image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* transform: scale(1.4); */
+  /* object-position: -30px -130px; */
+}
+
+.stream__btn__container {
+  width: 35%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.stream_btn {
+  width: 100%;
+}
+
+@media (max-width: 650px) {
+  .album__container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .album__image__container {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .stream__btn__container {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    align-items: flex-start;
+  }
+
+  .album_image {
+    transform: scale(1.04);
+    /* object-position: -6px 30px; */
+  }
+
+  .footer {
+    position: relative;
+    bottom: -20vh;
+  }
+}
