@@ -745,6 +745,7 @@ nav {
   padding-top: 80px;
   padding-bottom: 1rem;
   background-color: var(--main-color);
+  margin-top: -1px; /* to prevent gap between footer and main__content section */
 }
 
 .footer p {
