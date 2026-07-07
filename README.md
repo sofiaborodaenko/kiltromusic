@@ -63,4 +63,4 @@ This project also helped me better understand the importance of separating front
 
 **Sofia Borodaenko**
 
-[Portfolio](https://yourportfolio.com) · [LinkedIn](https://linkedin.com/in/sofia-borodaenko) · [GitHub](https://github.com/sofiaborodaenko)
+Portfolio • [LinkedIn](https://www.linkedin.com/in/sofia-borodaenko/) • [GitHub](https://github.com/sofiaborodaenko)
