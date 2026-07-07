@@ -2,13 +2,8 @@
 
 A personal redesign project inspired by the music and visual identity of the band Kiltro.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://kiltro.netlify.app/)
+[![Live Website](https://img.shields.io/badge/demo-live-brightgreen)](https://kiltro.netlify.app/)
 
-**[Live Website](https://kiltro.netlify.app/)**
-
-<div align="center">
-  <img src="./assets/KiltroDemo.gif" alt="Kiltro Website Demo" width="900">
-</div>
 
 ---
 
