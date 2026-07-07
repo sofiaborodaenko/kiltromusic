@@ -4,6 +4,9 @@ A personal redesign project inspired by the music and visual identity of the ban
 
 [![Live Website](https://img.shields.io/badge/demo-live-brightgreen)](https://kiltro.netlify.app/)
 
+![Figma Design 1](./readmeAssets/kiltrofigma1.png)
+![Figma Design 2](./readmeAssets/kiltrofigma2.png)
+![Figma Design 3](./readmeAssets/kiltrofigma3.png)
 
 ---
 
